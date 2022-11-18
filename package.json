@@ -1,0 +1,23 @@
+{
+  "name": "open-arcade",
+  "version": "1.0.0",
+  "description": "MAME front-end",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewskoehn/open-arcade.git"
+  },
+  "author": "Andrew Koehn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewskoehn/open-arcade/issues"
+  },
+  "homepage": "https://github.com/andrewskoehn/open-arcade#readme",
+  "devDependencies": {
+    "electron": "^21.2.3"
+  }
+}
