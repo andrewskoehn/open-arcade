@@ -1,8 +1,3 @@
-//const information = document.getElementById('info');
-//information.innerText = `This app is using Chrome (v${versions.chrome()}), Node.js (v${versions.node()}), and Electron (v${versions.electron()})`;
-//const setButton = document.getElementById('btn')
-//const gameInput = document.getElementById('game')
-
 const games = {
     g_0: {
         id: "dorunrun",
@@ -67,95 +62,162 @@ const games = {
     g_12: {
         id: "test12",
         name: "Test 12",
-        pic: 11
-    },
+        pic: 12
+    }
 };
 
-const numGames = Object.values(games).length;
-//console.log(numGames);
-const viewSize = 7;
+const TOTAL_GAMES = Object.values(games).length;
+const VIEW_SIZE = 7;    /* ODD NUMBERS ONLY */
+const HALF_SIZE = Math.floor(VIEW_SIZE / 2);
+const START_GAME = 0;
+const GAME_ELEMENT = '<div tabindex="-1" class="game-name">';
 
-var currentGame = 0;
-for(var i = 0; i < viewSize; i++)
-{
-    var objname = Object.values(games)[i].name;
-    document.getElementById('testBox').innerHTML += '<div tabindex="-1">' + objname + '</div>';
+var currentGame = START_GAME;
+
+// notify funky behavior because of ill-formatted games list
+if (VIEW_SIZE > TOTAL_GAMES || VIEW_SIZE % 2 == 0) {
+    console.log("ERROR: VIEW_SIZE invalid -> change VIEW_SIZE and restart app");
+}
+if (START_GAME < 0 || START_GAME > VIEW_SIZE - 1) {
+    console.log("ERROR: START_GAME invalid -> change START_GAME and restart app");
 }
 
-var divs = document.getElementById('testBox').getElementsByTagName('div');
-for(i = 0; i < viewSize; i++)
-{
-    divs[i].onkeydown = handleGameMove;
+startup();
+
+// generate the inital games list shown (currently starts at top of games list)
+function startup() {
+    for (var i = 0; i < VIEW_SIZE; i++) {
+        var gameName = Object.values(games)[i].name;
+        var addLine = GAME_ELEMENT + gameName + '</div>';
+        document.getElementById('game-list-container').insertAdjacentHTML("beforeEnd", addLine);
+    }
+
+    var divs = document.getElementById('game-list-container').getElementsByTagName('div');
+    for (i = 0; i < VIEW_SIZE; i++) {
+        divs[i].addEventListener("keydown", handleMoveGameSelector);
+        divs[i].addEventListener('mousedown', function(e) {
+            e.preventDefault();
+        });
+    }
+
+    window.addEventListener("mousedown", function(e) {
+        window.setTimeout(determineFocus, 1);
+    });
+
+    updateGameScreenshot();
+    updateGameBanner();
+    updateGameCounter();
+    determineFocus();
 }
 
-divs[currentGame].focus();
+function determineFocus() {
+    var divs = document.getElementById('game-list-container').getElementsByTagName('div');
+    var currentDiv = 0;
 
-function handleGameMove(e)
-{
-    var divs = document.getElementById('testBox').getElementsByTagName('div');
+    if (currentGame < HALF_SIZE)
+        currentDiv = currentGame;
+    else if (currentGame >= TOTAL_GAMES - HALF_SIZE)
+        currentDiv = VIEW_SIZE - (TOTAL_GAMES - currentGame);
+    else
+        currentDiv = HALF_SIZE;
 
+    document.getElementById("game-list-container").focus();
+    divs[currentDiv].focus();
+}
+
+function handleMoveGameSelector(e) {
     var x = 0;
-    if(e.key == "ArrowUp" && currentGame > 0)
+
+    if (e.key == "ArrowUp" && currentGame > 0)
         x = -1;
-    else if(e.key == "ArrowDown" && currentGame < numGames-1)
+    else if (e.key == "ArrowDown" && currentGame < TOTAL_GAMES - 1)
         x = 1;
-    else if(e.key == "Enter")
-    {
+    else if (e.key == "Enter") {
         var romToSend = Object.values(games)[currentGame].id;
         window.gameAPI.sendGame(romToSend)
+        //console.log(romToSend);
     }
     else
         return;
-    //console.log(currentGame);
-    currentGame = ((currentGame+x)%numGames);
-    //console.log("cGame = "+currentGame);
-    
-    var currentDiv = 0;
-    if(currentGame < 3)
-        currentDiv = currentGame;
-    else if(currentGame >= numGames-3)
-        currentDiv = 7-(numGames-currentGame);
-    else
-        currentDiv = 3;
-    //console.log("cDiv = " + currentDiv);
 
-    
-    if(x==1 && currentGame > 3 && currentGame < numGames-3)
-    {
-        adjustVisibleGames(x);
+    currentGame = ((currentGame + x) % TOTAL_GAMES);
+
+    // adjust the visible games showing on the list if needed
+    if (x == 1 && currentGame > HALF_SIZE && currentGame < TOTAL_GAMES - HALF_SIZE) {
+        adjustVisibleGamesDown();
     }
-    if(x==-1 && currentGame >= 3 && currentGame < numGames-4)
-    {
-        adjustVisibleGames(x);
+    if (x == -1 && currentGame >= HALF_SIZE && currentGame < TOTAL_GAMES - (HALF_SIZE + 1)) {
+        adjustVisibleGamesUp();
     }
 
-    divs[currentDiv].focus();
-    //console.log(Object.values(games)[currentGame].name);
-    
+    // update the game screenshot and game banner
+    updateGameScreenshot();
+    updateGameBanner();
+
+    // update game number counter
+    updateGameCounter();
+
+    // focus on the correct game
+    determineFocus();
 }
 
-function adjustVisibleGames(down)
-{
-    if(down == 1)
-    {
-        var replaceLine = '<div tabindex="-1">' + Object.values(games)[currentGame+3].name + '</div>';
-        document.getElementById('testBox').insertAdjacentHTML("beforeend",replaceLine);
+function adjustVisibleGamesDown() {
+    var gameName = Object.values(games)[currentGame + HALF_SIZE].name;
+    var addLine = GAME_ELEMENT + gameName + '</div>';
+    document.getElementById('game-list-container').insertAdjacentHTML("beforeEnd", addLine);
 
-        var divs = document.getElementById('testBox').getElementsByTagName('div');
-        divs[divs.length-1].onkeydown = handleGameMove;
+    var divs = document.getElementById('game-list-container').getElementsByTagName('div');
+    divs[VIEW_SIZE].addEventListener("keydown", handleMoveGameSelector);
+    divs[VIEW_SIZE].addEventListener('mousedown', function(e) {
+        e.preventDefault();
+    });
 
-        divs[0].remove();
-    }
-    else
-    {
-        var replaceLine = '<div tabindex="-1">' + Object.values(games)[currentGame-3].name + '</div>';
-        document.getElementById('testBox').insertAdjacentHTML("afterBegin",replaceLine);
+    divs[0].remove();
+}
 
-        var divs = document.getElementById('testBox').getElementsByTagName('div');
-        divs[0].onkeydown = handleGameMove;
-        
-        divs[divs.length-1].remove();
-    }
+function adjustVisibleGamesUp() {
+    var gameName = Object.values(games)[currentGame - HALF_SIZE].name;
+    var addLine = GAME_ELEMENT + gameName + '</div>';
+    document.getElementById('game-list-container').insertAdjacentHTML("afterBegin", addLine);
+
+    var divs = document.getElementById('game-list-container').getElementsByTagName('div');
+    divs[0].addEventListener("keydown", handleMoveGameSelector);
+    divs[0].addEventListener('mousedown', function(e) {
+        e.preventDefault();
+    });
+
+    divs[VIEW_SIZE].remove();
+}
+
+function updateGameScreenshot() {
+    var gameID = Object.values(games)[currentGame].id;
+    var link = gameID + ".png";
+
+    var screenshot = document.createElement("img");
+    screenshot.src = link;
+    screenshot.class = "actual-screenshot";
+    screenshot.id = "screenshot";
+
+    document.getElementById("game-screenshot-container").innerHTML = '';
+    document.getElementById("game-screenshot-container").insertAdjacentElement("afterBegin", screenshot);
+}
+
+function updateGameBanner() {
+    var gameID = Object.values(games)[currentGame].id;
+    var link = gameID + "_banner.jpeg";
+
+    var banner = document.createElement("img");
+    banner.src = link;
+    banner.class = "actual-banner";
+    banner.id = "banner";
+
+    document.getElementById("game-banner-container").innerHTML = '';
+    document.getElementById("game-banner-container").insertAdjacentElement("afterBegin", banner);
+}
+
+function updateGameCounter() {
+    var phrase = "Game " + (currentGame + 1) + " of " + TOTAL_GAMES + " selected";
+    document.getElementById("game-number-container").textContent = phrase;
 }
 
 /*document.addEventListener('keypress', (e) => {

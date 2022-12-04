@@ -4,11 +4,13 @@ const { spawn, exec } = require('child_process');
 
 const createWindow = () => {
     const win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 900,
+        height: 700,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
         },
+        fullscreen: true,
+        autoHideMenuBar: true       // press ALT to reshow menu
     });
 
     win.loadFile('index.html');
@@ -16,11 +18,11 @@ const createWindow = () => {
 
 function handleNewGame (event, game) {
 
-    /*let command = 'cd C:/Users/Andrew Koehn/Desktop/MAME/mame0141 && mame.exe ' + game;
+    let command = 'cd C:/Users/Andrew Koehn/Desktop/MAME/mame0249 && mame.exe ' + game;
     exec(command, (error, stdout, stderr) => {
         console.log(stdout);
-    });*/
-    console.log(game);
+    });
+    //console.log(command);
 }
 
 app.whenReady().then(() => {

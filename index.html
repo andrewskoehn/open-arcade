@@ -1,55 +1,32 @@
-<!--<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>Hello from Electron renderer!</title>
-  </head>
-  <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-    <p id="info"></p>
-  </body>
-  <script src="./renderer.js"></script>
-</html>-->
-
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <link rel="stylesheet" href="index.css">
     <title>open-arcade</title>
-  </head>
-  <body>
-    <!--<div class="display-container">
-      <div class="games-list" id="games-list-box">
-        <div tabindex='-1' id="game-text">Line 1</div>
-        <div tabindex='-1' id="game-text">Line 2</div>
-        <div tabindex='-1' id="game-text">Line 3</div>
-        <div tabindex='-1' id="game-text">Line 4</div>
-        <div tabindex='-1' id="game-text">Line 5</div>
-        <div tabindex='-1' id="game-text">Line 6</div>-->
-        <!--script src="test.js"/-->
-        <!--<select size=10>
-          <option value="dorunrun">Do! Run Run</option>
-          <option value="ldrun">Lode Runner</option>
-        </select>-->
-      <!--</div>
-      <div class="game-image">
-        Game: <input id="game"/>
-        <button id="btn" type="button">Send</button>
-      </div>-->
-      <div class="test-box" id="testBox">
-      </div>
-      <script src="./renderer.js"></script>
-  </body>
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="game-banner-container" id="game-banner-container">
+        </div>
+
+        <div class="app-title-container" id="app-title-container">
+        </div>
+
+        <div class="game-list-container" id="game-list-container">
+        </div>
+
+        <div class="game-screenshot-container" id="game-screenshot-container">
+        </div>
+
+        <div class="game-number-container" id="game-number-container">
+        </div>
+    </div>
+    <script src="./renderer.js"></script>
+</body>
+
 </html>
