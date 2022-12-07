@@ -7,5 +7,6 @@ contextBridge.exposeInMainWorld('versions', {
 });
 
 contextBridge.exposeInMainWorld('gameAPI', {
-    sendGame: (game) => ipcRenderer.send('games', game)
-}); 
+    sendGame: (game) => ipcRenderer.send('games', game),
+    requestGameList: () => ipcRenderer.invoke('game-list')
+});

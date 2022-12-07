@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron');
 const path = require('path');
 const { spawn, exec } = require('child_process');
 
@@ -9,7 +9,7 @@ const createWindow = () => {
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
         },
-        fullscreen: true,
+        //fullscreen: true,
         autoHideMenuBar: true       // press ALT to reshow menu
     });
 
@@ -17,7 +17,6 @@ const createWindow = () => {
 };
 
 function handleNewGame (event, game) {
-
     let command = 'cd C:/Users/Andrew Koehn/Desktop/MAME/mame0249 && mame.exe ' + game;
     exec(command, (error, stdout, stderr) => {
         console.log(stdout);
@@ -25,8 +24,15 @@ function handleNewGame (event, game) {
     //console.log(command);
 }
 
+function handleGameListRequest() {
+    const game_list = require('./games.json');
+    console.log(game_list);
+    return game_list;
+}
+
 app.whenReady().then(() => {
     ipcMain.on('games', handleNewGame);
+    ipcMain.handle('game-list', handleGameListRequest);
     createWindow();
 
     app.on('activate', () => {

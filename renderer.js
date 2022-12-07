@@ -1,4 +1,4 @@
-const games = {
+/*let games = {
     g_0: {
         id: "dorunrun",
         name: "Do! Run Run",
@@ -64,7 +64,12 @@ const games = {
         name: "Test 12",
         pic: 12
     }
-};
+};*/
+
+
+//const test = require("./games.json");
+let games = window.gameAPI.requestGameList().then((response) => {return response.games;});
+console.log(games);
 
 const TOTAL_GAMES = Object.values(games).length;
 const VIEW_SIZE = 7;    /* ODD NUMBERS ONLY */
@@ -86,6 +91,7 @@ startup();
 
 // generate the inital games list shown (currently starts at top of games list)
 function startup() {
+
     for (var i = 0; i < VIEW_SIZE; i++) {
         var gameName = Object.values(games)[i].name;
         var addLine = GAME_ELEMENT + gameName + '</div>';
