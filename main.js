@@ -4,8 +4,8 @@ const { spawn, exec } = require('child_process');
 
 const createWindow = () => {
     const win = new BrowserWindow({
-        width: 900,
-        height: 700,
+        width: 1000,
+        height: 750,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
         },
@@ -26,13 +26,13 @@ function handleNewGame (event, game) {
 
 function handleGameListRequest() {
     const game_list = require('./games.json');
-    console.log(game_list);
     return game_list;
 }
 
 app.whenReady().then(() => {
-    ipcMain.on('games', handleNewGame);
-    ipcMain.handle('game-list', handleGameListRequest);
+    ipcMain.on('game_select', handleNewGame);
+    ipcMain.handle('game_list', handleGameListRequest);
+    
     createWindow();
 
     app.on('activate', () => {
