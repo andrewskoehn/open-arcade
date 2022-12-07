@@ -106,3 +106,5 @@ dist
 # User-ignored files
 package.json
 package-lock.json
+screenshots/
+banners/
