@@ -131,7 +131,7 @@ function adjustVisibleGamesUp() {
 
 function updateGameScreenshot() {
     var gameID = games[currentGame].id;
-    var link = gameID + ".png";
+    var link = "screenshots/" + gameID + ".png";
 
     var screenshot = document.createElement("img");
     screenshot.src = link;
@@ -144,7 +144,7 @@ function updateGameScreenshot() {
 
 function updateGameBanner() {
     var gameID = games[currentGame].id;
-    var link = gameID + "_banner.jpeg";
+    var link = "banners/" + gameID + "_banner.jpeg";
 
     var banner = document.createElement("img");
     banner.src = link;
