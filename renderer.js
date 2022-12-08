@@ -1,77 +1,6 @@
-let games = {
-    g_0: {
-        id: "dorunrun",
-        name: "Do! Run Run",
-        pic: 0
-    },
-    g_1: {
-        id: "dowild",
-        name: "Mr. Do's Wild Ride",
-        pic: 1
-    },
-    g_2: {
-        id: "mspacman",
-        name: "Ms. Pac-Man",
-        pic: 2
-    },
-    g_3: {
-        id: "ldrun",
-        name: "Lode Runner",
-        pic: 3
-    },
-    g_4: {
-        id: "llander",
-        name: "Lunar Lander",
-        pic: 4
-    },
-    g_5: {
-        id: "rallyx",
-        name: "Rally X",
-        pic: 5
-    },
-    g_6: {
-        id: "bouldash",
-        name: "Boulder Dash 2",
-        pic: 6
-    },
-    g_7: {
-        id: "test7",
-        name: "Test 7",
-        pic: 7
-    },
-    g_8: {
-        id: "test8",
-        name: "Test 8",
-        pic: 8
-    },
-    g_9: {
-        id: "test9",
-        name: "Test 9",
-        pic: 9
-    },
-    g_10: {
-        id: "test10",
-        name: "Test 10",
-        pic: 10
-    },
-    g_11: {
-        id: "test11",
-        name: "Test 11",
-        pic: 11
-    },
-    g_12: {
-        id: "test12",
-        name: "Test 12",
-        pic: 12
-    }
-};
+var games = [];
+var TOTAL_GAMES = 0;
 
-
-//const test = require("./games.json");
-//let games = window.gameAPI.requestGameList().then((response) => {return response.games;});
-//console.log(games);
-
-const TOTAL_GAMES = Object.values(games).length;
 const VIEW_SIZE = 7;    /* ODD NUMBERS ONLY */
 const HALF_SIZE = Math.floor(VIEW_SIZE / 2);
 const START_GAME = 0;
@@ -79,21 +8,24 @@ const GAME_ELEMENT = '<div tabindex="-1" class="game-name">';
 
 var currentGame = START_GAME;
 
-// notify funky behavior because of ill-formatted games list
-if (VIEW_SIZE > TOTAL_GAMES || VIEW_SIZE % 2 == 0) {
-    console.log("ERROR: VIEW_SIZE invalid -> change VIEW_SIZE and restart app");
-}
-if (START_GAME < 0 || START_GAME > VIEW_SIZE - 1) {
-    console.log("ERROR: START_GAME invalid -> change START_GAME and restart app");
-}
-
 startup();
 
 // generate the inital games list shown (currently starts at top of games list)
-function startup() {
+async function startup() {
+
+    games = await window.gameAPI.requestGameList();
+    TOTAL_GAMES = games.length;
+
+    // notify funky behavior because of ill-formatted games list
+    if (VIEW_SIZE > TOTAL_GAMES || VIEW_SIZE % 2 == 0) {
+        console.log("ERROR: VIEW_SIZE invalid -> change VIEW_SIZE and restart app");
+    }
+    if (START_GAME < 0 || START_GAME > VIEW_SIZE - 1) {
+        console.log("ERROR: START_GAME invalid -> change START_GAME and restart app");
+    }
 
     for (var i = 0; i < VIEW_SIZE; i++) {
-        var gameName = Object.values(games)[i].name;
+        var gameName = games[i].name;
         var addLine = GAME_ELEMENT + gameName + '</div>';
         document.getElementById('game-list-container').insertAdjacentHTML("beforeEnd", addLine);
     }
@@ -111,9 +43,11 @@ function startup() {
     });
 
     updateGameScreenshot();
-    updateGameBanner();
+    //updateGameBanner();
     updateGameCounter();
     determineFocus();
+
+    console.log("startup done");
 }
 
 function determineFocus() {
@@ -139,7 +73,7 @@ function handleMoveGameSelector(e) {
     else if (e.key == "ArrowDown" && currentGame < TOTAL_GAMES - 1)
         x = 1;
     else if (e.key == "Enter") {
-        var romToSend = Object.values(games)[currentGame].id;
+        var romToSend = games[currentGame].id;
         window.gameAPI.sendGame(romToSend)
         //console.log(romToSend);
     }
@@ -158,7 +92,7 @@ function handleMoveGameSelector(e) {
 
     // update the game screenshot and game banner
     updateGameScreenshot();
-    updateGameBanner();
+    //updateGameBanner();
 
     // update game number counter
     updateGameCounter();
@@ -168,7 +102,7 @@ function handleMoveGameSelector(e) {
 }
 
 function adjustVisibleGamesDown() {
-    var gameName = Object.values(games)[currentGame + HALF_SIZE].name;
+    var gameName = games[currentGame + HALF_SIZE].name;
     var addLine = GAME_ELEMENT + gameName + '</div>';
     document.getElementById('game-list-container').insertAdjacentHTML("beforeEnd", addLine);
 
@@ -182,7 +116,7 @@ function adjustVisibleGamesDown() {
 }
 
 function adjustVisibleGamesUp() {
-    var gameName = Object.values(games)[currentGame - HALF_SIZE].name;
+    var gameName = games[currentGame - HALF_SIZE].name;
     var addLine = GAME_ELEMENT + gameName + '</div>';
     document.getElementById('game-list-container').insertAdjacentHTML("afterBegin", addLine);
 
@@ -196,8 +130,8 @@ function adjustVisibleGamesUp() {
 }
 
 function updateGameScreenshot() {
-    var gameID = Object.values(games)[currentGame].id;
-    var link = gameID + ".png";
+    var gameID = games[currentGame].id;
+    var link = "screenshots/" + gameID + ".png";
 
     var screenshot = document.createElement("img");
     screenshot.src = link;
@@ -209,8 +143,8 @@ function updateGameScreenshot() {
 }
 
 function updateGameBanner() {
-    var gameID = Object.values(games)[currentGame].id;
-    var link = gameID + "_banner.jpeg";
+    var gameID = games[currentGame].id;
+    var link = "banners/" + gameID + "_banner.jpeg";
 
     var banner = document.createElement("img");
     banner.src = link;
@@ -225,8 +159,3 @@ function updateGameCounter() {
     var phrase = "Game " + (currentGame + 1) + " of " + TOTAL_GAMES + " selected";
     document.getElementById("game-number-container").textContent = phrase;
 }
-
-/*document.addEventListener('keypress', (e) => {
-    //const game = gameInput.value
-    //window.gameAPI.sendGame(game)
-});*/

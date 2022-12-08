@@ -1,7 +1,35 @@
+[{
+    "id": "dorunrun",
+    "name": "Do! Run Run",
+    "pic": 0
+},
 {
-    "games": [
-        { "id": "game1",
-        "test": "1"},
-        { "id": "game2"}
-    ]
-}
+    "id": "dowild",
+    "name": "Mr. Do's Wild Ride",
+    "pic": 1
+},
+{
+    "id": "mspacman",
+    "name": "Ms. Pac-Man",
+    "pic": 2
+},
+{
+    "id": "ldrun",
+    "name": "Lode Runner",
+    "pic": 3
+},
+{
+    "id": "llander",
+    "name": "Lunar Lander",
+    "pic": 4
+},
+{
+    "id": "rallyx",
+    "name": "Rally X",
+    "pic": 5
+},
+{
+    "id": "bouldash",
+    "name": "Boulder Dash 2",
+    "pic": 6
+}]
