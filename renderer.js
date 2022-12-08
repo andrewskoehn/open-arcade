@@ -1,4 +1,4 @@
-/*let games = {
+let games = {
     g_0: {
         id: "dorunrun",
         name: "Do! Run Run",
@@ -64,12 +64,12 @@
         name: "Test 12",
         pic: 12
     }
-};*/
+};
 
 
 //const test = require("./games.json");
-let games = window.gameAPI.requestGameList().then((response) => {return response.games;});
-console.log(games);
+//let games = window.gameAPI.requestGameList().then((response) => {return response.games;});
+//console.log(games);
 
 const TOTAL_GAMES = Object.values(games).length;
 const VIEW_SIZE = 7;    /* ODD NUMBERS ONLY */
