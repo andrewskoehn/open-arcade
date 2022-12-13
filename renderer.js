@@ -25,7 +25,7 @@ async function startup() {
     }
 
     for (var i = 0; i < VIEW_SIZE; i++) {
-        var gameName = games[i].name;
+        var gameName = games[i].title;
         var addLine = GAME_ELEMENT + gameName + '</div>';
         document.getElementById('game-list-container').insertAdjacentHTML("beforeEnd", addLine);
     }
@@ -43,11 +43,9 @@ async function startup() {
     });
 
     updateGameScreenshot();
-    //updateGameBanner();
+    updateGameBanner();
     updateGameCounter();
     determineFocus();
-
-    console.log("startup done");
 }
 
 function determineFocus() {
@@ -92,7 +90,7 @@ function handleMoveGameSelector(e) {
 
     // update the game screenshot and game banner
     updateGameScreenshot();
-    //updateGameBanner();
+    updateGameBanner();
 
     // update game number counter
     updateGameCounter();
@@ -102,7 +100,7 @@ function handleMoveGameSelector(e) {
 }
 
 function adjustVisibleGamesDown() {
-    var gameName = games[currentGame + HALF_SIZE].name;
+    var gameName = games[currentGame + HALF_SIZE].title;
     var addLine = GAME_ELEMENT + gameName + '</div>';
     document.getElementById('game-list-container').insertAdjacentHTML("beforeEnd", addLine);
 
@@ -116,7 +114,7 @@ function adjustVisibleGamesDown() {
 }
 
 function adjustVisibleGamesUp() {
-    var gameName = games[currentGame - HALF_SIZE].name;
+    var gameName = games[currentGame - HALF_SIZE].title;
     var addLine = GAME_ELEMENT + gameName + '</div>';
     document.getElementById('game-list-container').insertAdjacentHTML("afterBegin", addLine);
 

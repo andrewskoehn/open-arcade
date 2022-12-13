@@ -2,9 +2,11 @@ const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron');
 const path = require('path');
 const { spawn, exec } = require('child_process');
 
+const MAME_DIR = 'C:/Users/Admin/Desktop/MAME/mame0249/'
+
 const createWindow = () => {
     const win = new BrowserWindow({
-        width: 1000,
+        width: 1250,  // change back to 1000 after removing auto open dev tools
         height: 750,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
@@ -14,14 +16,15 @@ const createWindow = () => {
     });
 
     win.loadFile('index.html');
+    //win.webContents.openDevTools();
 };
 
 function handleNewGame (event, game) {
-    let command = 'cd C:/Users/Andrew Koehn/Desktop/MAME/mame0249 && mame.exe ' + game;
+    let command = 'cd ' + MAME_DIR + ' && mame.exe ' + game;
     exec(command, (error, stdout, stderr) => {
         console.log(stdout);
     });
-    //console.log(command);
+    console.log(command);
 }
 
 function handleGameListRequest() {

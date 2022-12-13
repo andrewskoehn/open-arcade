@@ -1,35 +1,34 @@
-[{
+[
+{
+    "id": "bouldash",
+    "title": "Boulder Dash"
+},
+{
+    "id": "btime",
+    "title": "Burger Time"
+},
+{
     "id": "dorunrun",
-    "name": "Do! Run Run",
-    "pic": 0
-},
-{
-    "id": "dowild",
-    "name": "Mr. Do's Wild Ride",
-    "pic": 1
-},
-{
-    "id": "mspacman",
-    "name": "Ms. Pac-Man",
-    "pic": 2
-},
-{
-    "id": "ldrun",
-    "name": "Lode Runner",
-    "pic": 3
+    "title": "Do! Run Run"
 },
 {
     "id": "llander",
-    "name": "Lunar Lander",
-    "pic": 4
+    "title": "Lunar Lander"
+},
+{
+    "id": "ldrun",
+    "title": "Lode Runner"
+},
+{
+    "id": "dowild",
+    "title": "Mr. Do's Wild Ride"
+},
+{
+    "id": "mspacman",
+    "title": "Ms. Pac-Man"
 },
 {
     "id": "rallyx",
-    "name": "Rally X",
-    "pic": 5
-},
-{
-    "id": "bouldash",
-    "name": "Boulder Dash 2",
-    "pic": 6
-}]
+    "title": "Rally X"
+}
+]
