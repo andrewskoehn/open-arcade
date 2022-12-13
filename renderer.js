@@ -5,6 +5,8 @@ const VIEW_SIZE = 7;    /* ODD NUMBERS ONLY */
 const HALF_SIZE = Math.floor(VIEW_SIZE / 2);
 const START_GAME = 0;
 const GAME_ELEMENT = '<div tabindex="-1" class="game-name">';
+const SCREENSHOT_DIR = "screenshots/"
+const BANNER_DIR = "banners/"
 
 var currentGame = START_GAME;
 
@@ -129,7 +131,7 @@ function adjustVisibleGamesUp() {
 
 function updateGameScreenshot() {
     var gameID = games[currentGame].id;
-    var link = "screenshots/" + gameID + ".png";
+    var link = SCREENSHOT_DIR + gameID + ".png";
 
     var screenshot = document.createElement("img");
     screenshot.src = link;
@@ -142,7 +144,7 @@ function updateGameScreenshot() {
 
 function updateGameBanner() {
     var gameID = games[currentGame].id;
-    var link = "banners/" + gameID + "_banner.jpeg";
+    var link = BANNER_DIR + gameID + "_banner.png";
 
     var banner = document.createElement("img");
     banner.src = link;
