@@ -6,16 +6,23 @@ const MAME_DIR = 'C:/Users/Admin/Desktop/MAME/mame0249/'
 
 const createWindow = () => {
     const win = new BrowserWindow({
-        width: 1250,  // change back to 1000 after removing auto open dev tools
-        height: 750,
+        width: 1200,  // change back to 1000 after removing auto open dev tools
+        height: 900,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
         },
         //fullscreen: true,
-        autoHideMenuBar: true       // press ALT to reshow menu
+        autoHideMenuBar: true,       // press ALT to reshow menu
+        titleBarStyle: 'hidden',
+        titleBarOverlay: {
+            color: '#2f3241',
+            symbolColor: '#74b1be',
+        },
+        useContentSize: true
     });
 
     win.loadFile('index.html');
+    win.setAspectRatio(4/3)
     //win.webContents.openDevTools();
 };
 
@@ -31,6 +38,8 @@ function handleGameListRequest() {
     const game_list = require('./games.json');
     return game_list;
 }
+
+app.disableHardwareAcceleration()
 
 app.whenReady().then(() => {
     ipcMain.on('game_select', handleNewGame);

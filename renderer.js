@@ -135,7 +135,7 @@ function updateGameScreenshot() {
 
     var screenshot = document.createElement("img");
     screenshot.src = link;
-    screenshot.class = "actual-screenshot";
+    screenshot.className = "actual-screenshot";
     screenshot.id = "screenshot";
 
     document.getElementById("game-screenshot-container").innerHTML = '';
@@ -148,7 +148,7 @@ function updateGameBanner() {
 
     var banner = document.createElement("img");
     banner.src = link;
-    banner.class = "actual-banner";
+    banner.className = "actual-banner";
     banner.id = "banner";
 
     document.getElementById("game-banner-container").innerHTML = '';
