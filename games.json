@@ -8,6 +8,22 @@
     "title": "Burger Time"
 },
 {
+    "id": "ckong",
+    "title": "Crazy Kong"
+},
+{
+    "id": "dkong",
+    "title": "Donkey Kong"
+},
+{
+    "id": "dkong3",
+    "title": "Donkey Kong 3"
+},
+{
+    "id": "dkongjr",
+    "title": "Donkey Kong Junior"
+},
+{
     "id": "dorunrun",
     "title": "Do! Run Run"
 },
@@ -18,6 +34,14 @@
 {
     "id": "llander",
     "title": "Lunar Lander"
+},
+{
+    "id": "mrdo",
+    "title": "Mr. Do!"
+},
+{
+    "id": "docastle",
+    "title": "Mr. Do's Castle"
 },
 {
     "id": "dowild",

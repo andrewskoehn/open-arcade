@@ -1,7 +1,7 @@
 var games = [];
 var TOTAL_GAMES = 0;
 
-const VIEW_SIZE = 7;    /* ODD NUMBERS ONLY */
+const VIEW_SIZE = 13;    /* ODD NUMBERS ONLY */
 const HALF_SIZE = Math.floor(VIEW_SIZE / 2);
 const START_GAME = 0;
 const GAME_ELEMENT = '<div tabindex="-1" class="game-name">';
