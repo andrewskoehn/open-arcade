@@ -1,7 +1,15 @@
 [
 {
+    "id": "baddudes",
+    "title": "Bad Dudes vs. Dragonninja"
+},    
+{
     "id": "bouldash",
     "title": "Boulder Dash"
+},
+{
+    "id": "bublbobl",
+    "title": "Bubble Bobble"
 },
 {
     "id": "btime",
@@ -10,6 +18,14 @@
 {
     "id": "ckong",
     "title": "Crazy Kong"
+},
+{
+    "id": "digdug",
+    "title": "Dig Dug"
+},
+{
+    "id": "digdug2",
+    "title": "Dig Dug II"
 },
 {
     "id": "dkong",
@@ -28,12 +44,44 @@
     "title": "Do! Run Run"
 },
 {
+    "id": "drmario",
+    "title": "Dr. Mario"
+},
+{
+    "id": "enduror",
+    "title": "Enduro Racer"
+},
+{
+    "id": "f1gp",
+    "title": "F-1 Grand Prix"
+},
+{
+    "id": "frogger",
+    "title": "Frogger"
+},
+{
+    "id": "jrpacman",
+    "title": "Jr. Pac-Man"
+},
+{
     "id": "ldrun",
     "title": "Lode Runner"
 },
 {
     "id": "llander",
     "title": "Lunar Lander"
+},
+{
+    "id": "mappy",
+    "title": "Mappy"
+},
+{
+    "id": "mario",
+    "title": "Mario Bros."
+},
+{
+    "id": "mpatrol",
+    "title": "Moon Patrol"
 },
 {
     "id": "mrdo",
@@ -52,7 +100,55 @@
     "title": "Ms. Pac-Man"
 },
 {
+    "id": "25pacman",
+    "title": "Pac-Man (25th Anniversary)"
+},
+{
+    "id": "paperboy",
+    "title": "Paperboy"
+},
+{
+    "id": "qbert",
+    "title": "Q*bert"
+},
+{
     "id": "rallyx",
     "title": "Rally X"
+},
+{
+    "id": "shinobi",
+    "title": "Shinobi"
+},
+{
+    "id": "invaders",
+    "title": "Space Invaders"
+},
+{
+    "id": "sbrkout",
+    "title": "Super Breakout"
+},
+{
+    "id": "pc_smb",
+    "title": "Super Mario Bros."
+},
+{
+    "id": "pc_smb2",
+    "title": "Super Mario Bros. 2"
+},
+{
+    "id": "pc_smb3",
+    "title": "Super Mario Bros. 3"
+},
+{
+    "id": "superpac",
+    "title": "Super Pac-man"
+},
+{
+    "id": "tetris",
+    "title": "Tetris"
+},
+{
+    "id": "suprmrio",
+    "title": "Vs. Super Mario Bros."
 }
 ]
