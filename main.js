@@ -6,7 +6,7 @@ const MAME_DIR = 'C:/Users/Admin/Desktop/MAME/mame0249/'
 
 const createWindow = () => {
     const win = new BrowserWindow({
-        width: 1200,  // change back to 1000 after removing auto open dev tools
+        width: 1200,  // width and height must be 4:3
         height: 900,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),

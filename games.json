@@ -1,11 +1,26 @@
 [
 {
+    "id": "88games",
+    "title": "88 Games"
+},
+{
     "id": "baddudes",
     "title": "Bad Dudes vs. Dragonninja"
-},    
+},
+{
+    "id": "bagman",
+    "title": "Bagman"
+},
+{
+    "id": "berzerk",
+    "title": "Berzerk"
+},
 {
     "id": "bouldash",
     "title": "Boulder Dash"
+},{
+    "id": "boxyboy",
+    "title": "Boxy Boy"
 },
 {
     "id": "bublbobl",
@@ -16,8 +31,20 @@
     "title": "Burger Time"
 },
 {
+    "id": "brubber",
+    "title": "Burnin' Rubber"
+},
+{
+    "id": "crbaloon",
+    "title": "Crazy Balloon"
+},
+{
     "id": "ckong",
     "title": "Crazy Kong"
+},
+{
+    "id": "diamond",
+    "title": "Diamond Run"
 },
 {
     "id": "digdug",
@@ -26,6 +53,10 @@
 {
     "id": "digdug2",
     "title": "Dig Dug II"
+},
+{
+    "id": "dorunrun",
+    "title": "Do! Run Run"
 },
 {
     "id": "dkong",
@@ -40,12 +71,16 @@
     "title": "Donkey Kong Junior"
 },
 {
-    "id": "dorunrun",
-    "title": "Do! Run Run"
-},
-{
     "id": "drmario",
     "title": "Dr. Mario"
+},
+{
+    "id": "drmicro",
+    "title": "Dr. Micro"
+},
+{
+    "id": "drgnbstr",
+    "title": "Dragon Buster"
 },
 {
     "id": "enduror",
@@ -60,16 +95,84 @@
     "title": "Frogger"
 },
 {
+    "id": "galaga",
+    "title": "Galaga"
+},
+{
+    "id": "galpanic",
+    "title": "Gals Panic"
+},
+{
+    "id": "gauntlet",
+    "title": "Gauntlet"
+},
+{
+    "id": "gaunt2",
+    "title": "Gauntlet II"
+},
+{
+    "id": "gng",
+    "title": "Ghosts'n Goblins"
+},
+{
+    "id": "ghouls",
+    "title": "Ghouls'n Ghosts"
+},
+{
+    "id": "yamagchi",
+    "title": "Go Go Mr. Yamaguchi"
+},
+{
+    "id": "gogomile",
+    "title": "Go Go! Mile Smile"
+},
+{
+    "id": "hharry",
+    "title": "Hammerin' Harry"
+},
+{
+    "id": "hangon",
+    "title": "Hang-on"
+},
+{
+    "id": "hangonjr",
+    "title": "Hang-on Jr"
+},
+{
+    "id": "headon",
+    "title": "Head On"
+},
+{
+    "id": "headon2",
+    "title": "Head On 2"
+},
+{
     "id": "jrpacman",
     "title": "Jr. Pac-Man"
+},
+{
+    "id": "kickridr",
+    "title": "Kick Rider"
 },
 {
     "id": "ldrun",
     "title": "Lode Runner"
 },
 {
+    "id": "ldrun2",
+    "title": "Lode Runner II"
+},
+{
+    "id": "ldrun3",
+    "title": "Lode Runner III"
+},
+{
     "id": "llander",
     "title": "Lunar Lander"
+},
+{
+    "id": "lrescue",
+    "title": "Lunar Rescue"
 },
 {
     "id": "mappy",
@@ -78,6 +181,14 @@
 {
     "id": "mario",
     "title": "Mario Bros."
+},
+{
+    "id": "missw96",
+    "title": "Miss World 96"
+},
+{
+    "id": "missw02",
+    "title": "Miss World 2002"
 },
 {
     "id": "mpatrol",
@@ -100,24 +211,60 @@
     "title": "Ms. Pac-Man"
 },
 {
+    "id": "nrallyx",
+    "title": "New Rally X"
+},
+{
     "id": "25pacman",
-    "title": "Pac-Man (25th Anniversary)"
+    "title": "Pac-Man"
 },
 {
     "id": "paperboy",
     "title": "Paperboy"
 },
 {
+    "id": "pushman",
+    "title": "Pushman"
+},
+{
+    "id": "puzznic",
+    "title": "Puzznic"
+},
+{
     "id": "qbert",
     "title": "Q*bert"
+},
+{
+    "id": "qix",
+    "title": "Qix"
 },
 {
     "id": "rallyx",
     "title": "Rally X"
 },
 {
+    "id": "rampage",
+    "title": "Rampage"
+},
+{
+    "id": "rthunder",
+    "title": "Rolling Thunder"
+},
+{
+    "id": "rthun2",
+    "title": "Rolling Thunder 2"
+},
+{
     "id": "shinobi",
     "title": "Shinobi"
+},
+{
+    "id": "mp_sonic",
+    "title": "Sonic The Hedgehog"
+},
+{
+    "id": "mp_soni2",
+    "title": "Sonic The Hedgehog 2"
 },
 {
     "id": "invaders",
@@ -126,6 +273,10 @@
 {
     "id": "sbrkout",
     "title": "Super Breakout"
+},
+{
+    "id": "shangon",
+    "title": "Super Hang-on"
 },
 {
     "id": "pc_smb",
@@ -140,6 +291,10 @@
     "title": "Super Mario Bros. 3"
 },
 {
+    "id": "smissw",
+    "title": "Super Miss World"
+},
+{
     "id": "superpac",
     "title": "Super Pac-man"
 },
@@ -148,7 +303,35 @@
     "title": "Tetris"
 },
 {
+    "id": "twinbrat",
+    "title": "Twin Brats"
+},
+{
+    "id": "twinqix",
+    "title": "Twin Qix"
+},
+{
+    "id": "upndown",
+    "title": "Up'n Down"
+},
+{
+    "id": "iceclimb",
+    "title": "Vs. Ice Climber"
+},
+{
     "id": "suprmrio",
     "title": "Vs. Super Mario Bros."
+},
+{
+    "id": "wboy",
+    "title": "Wonder Boy"
+},
+{
+    "id": "wbml",
+    "title": "Wonder Boy in Monster Land"
+},
+{
+    "id": "wrally",
+    "title": "World Rally"
 }
 ]

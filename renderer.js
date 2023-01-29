@@ -8,6 +8,7 @@ const GAME_ELEMENT = '<div tabindex="-1" class="game-name">';
 const SCREENSHOT_DIR = "screenshots/"
 const BANNER_DIR = "banners/"
 
+var IN_GAME = false;
 var currentGame = START_GAME;
 
 startup();
@@ -43,6 +44,12 @@ async function startup() {
     window.addEventListener("mousedown", function(e) {
         window.setTimeout(determineFocus, 1);
     });
+    window.addEventListener("focus", function(e) {
+        if(IN_GAME == true)
+        {
+            IN_GAME = false;
+        }
+    });
 
     updateGameScreenshot();
     updateGameBanner();
@@ -74,7 +81,11 @@ function handleMoveGameSelector(e) {
         x = 1;
     else if (e.key == "Enter") {
         var romToSend = games[currentGame].id;
-        window.gameAPI.sendGame(romToSend)
+        if(IN_GAME == false)
+        {
+            window.gameAPI.sendGame(romToSend);
+            IN_GAME = true;
+        }
         //console.log(romToSend);
     }
     else
