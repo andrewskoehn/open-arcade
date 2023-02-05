@@ -87,6 +87,9 @@ function handleMoveGameSelector(e) {
             IN_GAME = true;
         }
     }
+    else if (e.key == "5") {
+        window.gameAPI.shutdown();
+    }
     else
         return;
 

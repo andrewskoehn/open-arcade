@@ -34,6 +34,17 @@ function handleNewGame (event, game) {
     console.log(command);
 }
 
+function handleShutdown(event) {
+    const shutdown = require('electron-shutdown-command');
+    shutdown.shutdown({
+        force: true,
+        timerseconds: 60,
+        sudo: true,
+        debug: true,
+        quitapp: true
+    });
+}
+
 function handleGameListRequest() {
     const game_list = require('./games.json');
     return game_list;
@@ -43,6 +54,7 @@ app.disableHardwareAcceleration()
 
 app.whenReady().then(() => {
     ipcMain.on('game_select', handleNewGame);
+    ipcMain.on('shutdown', handleShutdown)
     ipcMain.handle('game_list', handleGameListRequest);
     
     createWindow();
