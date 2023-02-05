@@ -79,14 +79,13 @@ function handleMoveGameSelector(e) {
         x = -1;
     else if (e.key == "ArrowDown" && currentGame < TOTAL_GAMES - 1)
         x = 1;
-    else if (e.key == "Enter") {
+    else if (e.key == "1") {
         var romToSend = games[currentGame].id;
         if(IN_GAME == false)
         {
             window.gameAPI.sendGame(romToSend);
             IN_GAME = true;
         }
-        //console.log(romToSend);
     }
     else
         return;
