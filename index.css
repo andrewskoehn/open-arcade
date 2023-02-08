@@ -1,20 +1,10 @@
 /*box-shadow: 0px 0px 0px 2px red inset;*/
 
 body {
-    /*background-color: white;*/
     background-image: url("optimized.svg");
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-/*.app-container {
-    display: block;
-    /*display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    grid-auto-rows: minmax(30px, auto);
-    background-color: transparent;
-}*/
 
 .game-banner-container {
     display: flex;

@@ -23,7 +23,6 @@ const createWindow = () => {
 
     win.loadFile('index.html');
     win.setAspectRatio(4/3)
-    //win.webContents.openDevTools();
 };
 
 function handleNewGame (event, game) {
@@ -38,7 +37,7 @@ function handleShutdown(event) {
     const shutdown = require('electron-shutdown-command');
     shutdown.shutdown({
         force: true,
-        timerseconds: 60,
+        timerseconds: 5,
         sudo: true,
         debug: true,
         quitapp: true
