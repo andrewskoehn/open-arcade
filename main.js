@@ -1,8 +1,8 @@
-const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const { spawn, exec } = require('child_process');
 
-const MAME_DIR = 'C:/Users/Admin/Desktop/MAME/mame0249/'
+const MAME_DIR = 'C:/Users/Admin/Desktop/MAME/mame0250/'
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -11,7 +11,7 @@ const createWindow = () => {
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
         },
-        //fullscreen: true,
+        fullscreen: true,
         autoHideMenuBar: true,       // press ALT to reshow menu
         titleBarStyle: 'hidden',
         titleBarOverlay: {
@@ -37,9 +37,9 @@ function handleShutdown(event) {
     const shutdown = require('electron-shutdown-command');
     shutdown.shutdown({
         force: true,
-        timerseconds: 5,
+        timerseconds: 2,
         sudo: true,
-        debug: true,
+        debug: false,
         quitapp: true
     });
 }
