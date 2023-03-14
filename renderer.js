@@ -87,8 +87,8 @@ function handleMoveGameSelector(e) {
             IN_GAME = true;
         }
     }
-    else if (e.key == "p") {
-        window.gameAPI.shutdown();
+    else if (e.key == "l") {
+        window.gameAPI.shutdown();  // shutdown key is lowercase "L", not "1" or "I"
     }
     else
         return;
