@@ -12,7 +12,7 @@ const createWindow = () => {
             preload: path.join(__dirname, 'preload.js'),
         },
         fullscreen: true,
-        autoHideMenuBar: true,       // press ALT to reshow menu
+        //autoHideMenuBar: true,       // press ALT to reshow menu
         titleBarStyle: 'hidden',
         titleBarOverlay: {
             color: '#2f3241',

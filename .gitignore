@@ -109,3 +109,5 @@ package-lock.json
 screenshots/
 banners/
 optimized.svg
+out/
+forge.config.js

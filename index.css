@@ -84,3 +84,6 @@ body {
     font-style: normal;
 }
 
+.app-container {
+    cursor: none;
+}
